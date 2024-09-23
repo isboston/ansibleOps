@@ -1,0 +1,11 @@
+---
+- name: Получение списка реальных пользователей
+  hosts: all
+  tasks:
+    - name: Получить список всех пользователей с UID >= 1000
+      command: awk -F':' '{ if ($3 >= 1000 && $1 != "nobody") print $1 }' /etc/passwd
+      register: user_list
+
+    - name: Вывести список реальных пользователей
+      debug:
+        var: user_list.stdout_lines
