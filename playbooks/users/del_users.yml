@@ -1,0 +1,26 @@
+---
+- name: Delete sudo users
+  hosts: ubuntu
+  become: true
+  gather_facts: yes
+  vars:
+    usernames: "{{ usnames }}"
+
+  tasks:
+    - name: Delete users
+      ansible.builtin.user:
+        name: "{{ item }}"
+        state: absent
+      loop: "{{ usernames }}"
+
+    - name: Delete sudoers files
+      file:
+        path: "/etc/sudoers.d/{{ item }}"
+        state: absent
+      loop: "{{ usernames }}"
+
+    - name: Delete home directories
+      file:
+        path: "/home/{{ item }}"
+        state: absent
+      loop: "{{ usernames }}"

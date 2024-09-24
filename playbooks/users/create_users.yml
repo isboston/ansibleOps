@@ -1,0 +1,23 @@
+---
+- name: Add users to the system
+  hosts: ubuntu
+  #gather_facts: yes
+  become: yes
+  vars:
+    usernames: "{{ usnames }}"  # Используем переменную напрямую
+
+  tasks:
+    - name: Add users to the system
+      user:
+        name: "{{ item }}"
+        state: present
+        comment: "User {{ item }}"  # Comment in English
+      loop: "{{ usernames }}"
+
+    - name: Verify users have been added
+      command: getent passwd
+      register: all_users
+
+    - name: Display all users
+      debug:
+        var: all_users.stdout_lines
