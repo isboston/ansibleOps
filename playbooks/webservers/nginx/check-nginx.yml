@@ -1,0 +1,24 @@
+---
+- name: Check and reload nginx if configuration is valid
+  hosts: all
+  become: true
+  become_method: sudo
+  tasks:
+    - name: Check if nginx is running
+      command: systemctl is-active nginx
+      register: nginx_status
+      ignore_errors: true
+
+    - name: Check nginx configuration
+      command: /usr/sbin/nginx -t
+      register: nginx_check
+      ignore_errors: true
+      when: nginx_status.rc == 0
+
+    - name: Reload nginx if configuration is valid
+      service:
+        name: nginx
+        state: reloaded
+      when:
+        - nginx_status.rc == 0
+        - nginx_check.rc == 0
