@@ -1,41 +1,43 @@
-# Плейбуки Ansible
+# Ansible Playbooks
 
-Добро пожаловать в репозиторий плейбуков Ansible!
-Этот репозиторий содержит набор плейбуков, предназначенных для автоматизации развертывания и управления инфраструктурой.
+Welcome to the Ansible Playbooks repository!  
+This repository contains a collection of playbooks designed for automating the deployment and management of infrastructure.
 
-## Содержание
-- **Плейбук для работы с пользователями в Linux**: Автоматизирует создание, удаление и настройку пользователей.
-- **Плейбук для установки веб-сервера**: Автоматизирует установку и настройку Apache/Nginx.
-- **Плейбук для настройки базы данных**: Обеспечивает установку и конфигурацию MySQL/PostgreSQL.
-- **Плейбук для развертывания приложений**: Упрощает процесс развертывания приложений на серверах.
-- **Плейбук для мониторинга**: Настраивает инструменты мониторинга, такие как Zabbix, Prometheus и Grafana.
+## Contents
+- **User Management Playbook**: Automates the creation, deletion, and configuration of users in Linux.
+- **Web Server Installation Playbook**: Automates the installation and configuration of Apache/Nginx.
+- **Database Setup Playbook**: Facilitates the installation and configuration of MySQL/PostgreSQL.
+- **Application Deployment Playbook**: Simplifies the process of deploying applications on servers.
+- **Monitoring Setup Playbook**: Configures monitoring tools such as Zabbix, Prometheus, and Grafana.
 
+## Installation
 
-## Установка
-
-1. Клонируйте репозиторий:
+1. Clone the repository:
    ```bash
    git clone https://github.com/isboston/ansible.git
    ```
-2. Перейдите в директорию с плейбуками:
+2. Navigate to the playbooks directory:
    ```bash
    cd ansible
    ```
-3. Запустите плейбук с помощью Ansible:
+3. Run the playbook using Ansible:
    ```bash
    ansible-playbook -i inventory test.yml
    ```
 
-## Требования
+## Requirements
 
-- Ansible 2.9 или выше
-- Доступ к целевым серверам через SSH
-- Необходимые права для выполнения задач
+- Ansible 2.9 or higher
+- SSH access to target servers
+- Necessary permissions to execute tasks
 
-## Вклад
+## Contributing
 
-Если у вас есть предложения или вы хотите внести свой вклад, не стесняйтесь создавать pull request или открывать issue.
+If you have suggestions or would like to contribute, feel free to create a pull request or open an issue.
 
-## Лицензия
+## License
 
-Этот проект лицензируется на условиях MIT License. Вы можете изменить содержимое и форматирование по своему усмотрению!
+This project is licensed under the MIT License. You are free to modify the content and formatting as you wish!
+```
+
+You can create a file named `README.md` and paste this content into it.
